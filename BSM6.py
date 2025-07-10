@@ -36,11 +36,11 @@ The **Black-Scholes Model** is used to price options, with **volatility (σ)** a
 Volatility is calculated as:
 """
 )
-st.latex(r"\text{Annualized Volatility} = \sigma = \text{Std Dev of Daily Returns} \times \sqrt{252}")
+st.latex(r"\text{Annualized Volatility} = \sigma = \text{Std Dev of Daily Returns} \times \sqrt{249}")
 st.markdown(
     """
 - **Std Dev of Daily Returns**: Daily price movement percentage.
-- **252**: Typical trading days in a year.
+- **249**: Typical trading days in a year.
 - **Data Source**: Adjusted close prices (if available) or close prices, accounting for splits and dividends.
 """
 )
@@ -72,7 +72,7 @@ def process_stock_data(data, ticker):
     data['Date'] = pd.to_datetime(data['Date'])
     
     std_dev = data['Daily % Change'].std()
-    annual_vol = std_dev * np.sqrt(252)
+    annual_vol = std_dev * np.sqrt(249)
     days = len(data)
     
     return data, {
